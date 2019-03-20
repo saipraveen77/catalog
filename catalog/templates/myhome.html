@@ -1,0 +1,56 @@
+<head>
+<title>SOC HUB</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none;}
+</style>
+</head>
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+  <!-- {% for tb in tbs_cat %}
+    <a href="{{ url_for('showChipsets',tbid=tb.id)}}">{{tb.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+<div class="w3-content w3-section" style="max-width:1000px">
+  <img class="mySlides" src="https://mybroadband.co.za/news/wp-content/uploads/2018/08/Kirin-980.jpg">
+  <img class="mySlides" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201810/galaxy_exynos.jpeg?DHZy3K5TEFfNtsxtYIUWtcYASNWXcj.2">
+  <img class="mySlides" src="https://o.aolcdn.com/images/dims?quality=85&image_uri=https%3A%2F%2Fs.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F1173034dd8eb62c883fda3e9905c0b4d%2F205957037%2Fkirin%2B970.jpg&client=amp-blogside-v2&signature=f254f0fd54f5573920854aa07e854f38714a830f"><br><br><br>
+  <marquee direction="ltr">
+		<font size="4" color="blue">&copy; 2019, All Rights Reserved
+		</font>
+  </marquee>
+	</div>
+	
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+    
+{% endblock content %}
+</div>
